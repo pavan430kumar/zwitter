@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">Zwitter</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/']">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['/aboutus']">AboutUs</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/" (click)=logout()>Logout</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <div class="jumbotron">
+    <h3>Welcome to Zwitter!</h3>
+    <h5>This is an angular app which allows users to Zweet :)</h5>
+  </div>
+
+  <h3>Create new Zweet</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter your Zweet here" #field>
+        <span class="input-group-btn">
+          <a class="btn btn-success" (click)="add(field)">Zweet!</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+
+  <h4>Zweets</h4>
+  <div class="row">
+    <div class="col-md-4 zweet-card" *ngFor="let zweet of zweets | async">
+
+      <!--html for like and remove buttons starts here-->
+      <div class="panel panel-default">
+        <!--<div class="test" style="float:right">  -->
+        <div class="btn btn-panel btn-info btn-sm pull-right btn-like" id="like" data-toggle="tooltip" title="Likes!" (click)="like(zweet.$key, zweet.likes)">
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+        </div>
+        <div class="count" id= "count">
+        <i class="badge panel-count badge-like-count">{{zweet.likes}}</i>
+        </div>
+        <div [hidden]="zweet.user != getCurrentUser()">
+          <div class="btn panel-btn-remove btn-danger btn-sm btn-remove" id="remove" (click)="remove(zweet.$key)">
+            <i class="glyphicon glyphicon-remove"></i>
+          </div>
+        </div>
+        <!--</div>-->
+
+        <!--html for like and remove buttons end here-->
+
+        <div class="panel-body">
+          <strong>{{zweet.user}}</strong> <br /> {{zweet.text}} <br />
+          <small>Posted on {{zweet.createdOn | date : 'd/M/y H:m a'}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

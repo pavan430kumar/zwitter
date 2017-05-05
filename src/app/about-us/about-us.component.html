@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <h3>AboutUs</h3>
+    <hr>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5>Zwitter Inc.</h5>
+          <p>35 Grimes Rd, Suite No: 100, RockyHill, <br> CT 06067</p>
+          <hr>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <sebm-google-map [latitude]="lat" [longitude]="lng">
+                <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+              </sebm-google-map>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <p>Please provide your valuable feedback about <b>Zwitter</b> app</p>
+          <form [formGroup]="feedBackForm" novalidate>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" formControlName="feedback"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="submitFeedback()">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
