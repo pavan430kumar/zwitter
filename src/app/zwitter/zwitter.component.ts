@@ -54,7 +54,18 @@ export class ZwitterComponent implements OnInit {
     this.zweets.remove($key);
   }
 
-  like($key: string, count: number) {
-    this.zweets.update($key, { likes: count + 1 });
+  alreadyLiked(){
+    let member = this.getCurrentUser();
+    this.af.database.list
+  }
+
+  // like($key: string, count: number) {
+  //   this.zweets.update($key, { likes: count + 1 });
+  // }
+
+    like($key: string) {
+      this.getCurrentUser();
+    //   this.zweets.update($key, {likes})
+    // this.zweets.update($key, { likes: count + 1 });
   }
 }
