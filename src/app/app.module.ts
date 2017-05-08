@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { FirebaseService } from './firebase.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,6 +37,7 @@ export const firebaseConfig = {
     BrowserModule,
     ReactiveFormsModule,
     HttpModule,
+    RouterModule,
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AgmCoreModule.forRoot({apiKey:'AIzaSyDU-gSbfKW1P561tKuY_nsCronuWFy2s1M'})
