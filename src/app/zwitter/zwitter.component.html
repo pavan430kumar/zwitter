@@ -53,7 +53,7 @@
           <i class="glyphicon glyphicon-thumbs-up"></i>
         </div>
         <div class="count" id= "count">
-        <i class="badge panel-count badge-like-count">{{zweet.likes.count}}</i>
+        <i class="badge panel-count badge-like-count">{{zweet.likes}}</i>
         </div>
         <div [hidden]="zweet.user != getCurrentUser()">
           <div class="btn panel-btn-remove btn-danger btn-sm btn-remove" id="remove" (click)="remove(zweet.$key)">
