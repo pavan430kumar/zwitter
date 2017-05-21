@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from "app/app.component";
 import { ZwitterComponent } from "app/zwitter/zwitter.component";
 import { LoginComponent } from "app/login/login.component";
+import {AgmCoreModule} from 'angular2-google-maps/core';
 
 const APP_ROUTES : Routes = [
     {path:'',component:ZwitterComponent},
@@ -14,3 +15,7 @@ const APP_ROUTES : Routes = [
 ];
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);
+
+
+//maps api module
+export const MapsConfig = AgmCoreModule.forRoot({apiKey:'AIzaSyDU-gSbfKW1P561tKuY_nsCronuWFy2s1M'});

@@ -1,3 +1,4 @@
+import { MapsConfig } from './app.router';
 import { RouterModule } from '@angular/router';
 import { FirebaseService } from './firebase.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +14,7 @@ import { ZwitterComponent } from './zwitter/zwitter.component';
 import { HeaderComponent } from './header.component';
 import { RegisterComponent } from './login/register.component';
 import { AboutUsComponent } from './about-us/about-us.component'
-import {AgmCoreModule} from 'angular2-google-maps/core';
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDU-gSbfKW1P561tKuY_nsCronuWFy2s1M",
@@ -40,7 +41,8 @@ export const firebaseConfig = {
     RouterModule,
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AgmCoreModule.forRoot({apiKey:'AIzaSyDU-gSbfKW1P561tKuY_nsCronuWFy2s1M'})
+    MapsConfig
+    //AgmCoreModule.forRoot({apiKey:'AIzaSyDU-gSbfKW1P561tKuY_nsCronuWFy2s1M'})
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
